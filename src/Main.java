@@ -56,6 +56,10 @@ class PongPanel extends JPanel
             public void actionPerformed(ActionEvent e) {
                 //Gavriel Write some code here
                 //notice that we have a variable right wall. X, Y , dx, and dy are meant for the ball.
+
+                //what happens when the ball moves off screen to the left? write an if, and a gameOver() method
+                //maybe you can figure out how to use the xor function so that it doesnt glitch when moving past the
+                //paddle
             }
         });
         timer.start();
