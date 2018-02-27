@@ -24,9 +24,12 @@ class PongGui extends JFrame
 }
 class PongPanel extends JPanel
 {
-    final int STARTING_POS = 450;
+    int paddlePos = 450;
+
     final int RIGHT_WALL = 1000;
-    int paddlePos = STARTING_POS;
+
+    int x = 200,y=200, dx = 10,dy = 10;//remember that d stands for delta, or change.
+
     PongPanel() {
         setBackground(Color.BLACK);
 
@@ -52,7 +55,7 @@ class PongPanel extends JPanel
             @Override
             public void actionPerformed(ActionEvent e) {
                 //Gavriel Write some code here
-                //notice that we have a variable right wall
+                //notice that we have a variable right wall. X, Y , dx, and dy are meant for the ball.
             }
         });
         timer.start();
