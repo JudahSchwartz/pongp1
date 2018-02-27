@@ -25,20 +25,18 @@ class PongGui extends JFrame
 class PongPanel extends JPanel
 {
     final int STARTING_POS = 450;
+    final int RIGHT_WALL = 1000;
     int paddlePos = STARTING_POS;
-    PongPanel(){
+    PongPanel() {
         setBackground(Color.BLACK);
 
         addMouseWheelListener(new MouseWheelListener() {
             @Override
             public void mouseWheelMoved(MouseWheelEvent e) {
-               if(e.getPreciseWheelRotation() > 0)
-               {
-                   paddlePos++;
-               }
-               else
-                   paddlePos--;
-
+                if (e.getPreciseWheelRotation() > 0)
+                    paddlePos+=2;
+                else
+                    paddlePos-=2;
             }
         });
 
@@ -54,16 +52,23 @@ class PongPanel extends JPanel
             @Override
             public void actionPerformed(ActionEvent e) {
                 //Gavriel Write some code here
+                //notice that we have a variable right wall
             }
         });
+        timer.start();
 
     }
     private void runPaddle() {
+        Graphics2D g = (Graphics2D) getGraphics();
         Timer timer = new Timer(50, new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                //Gavriel Write some code here
+                g.setColor(Color.black);
+                g.fillRect(100,0,50,1000);
+                g.setColor(Color.WHITE);
+                g.fillRoundRect(100,paddlePos,50,200,10,10);
             }
         });
+        timer.start();
     }
 }
